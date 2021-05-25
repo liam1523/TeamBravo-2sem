@@ -90,6 +90,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Metode til Thread for at åbne en ny fil
         private void OpenFile(List<Affaldspost> affaldsposts)
         {
             NyFilWindow nyFilWindow = new NyFilWindow(affaldsposts);
