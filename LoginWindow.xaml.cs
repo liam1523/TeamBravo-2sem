@@ -71,6 +71,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             {
                 MessageBox.Show("Adgangskode forkert!");
                 PwBox.Password = "";
+
             }
             else
             {

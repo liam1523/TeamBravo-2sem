@@ -24,6 +24,16 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         public DateTime Dato { get; set; }
 
+
+        public bool IsValid
+        {
+            get {
+                return Maaleenhed <= 8 && Maaleenhed > 0 &&
+                  Kategori <= 9 && Kategori > 0;
+            }
+
+        }
+
     }
 
 }
