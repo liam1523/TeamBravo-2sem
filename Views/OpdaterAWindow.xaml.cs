@@ -23,5 +23,15 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         {
             InitializeComponent();
         }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

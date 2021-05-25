@@ -21,5 +21,20 @@
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Opdater Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
 
+        <Label Content="Mængde" HorizontalAlignment="Left" Margin="23,68,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="maengdeTxt" HorizontalAlignment="Left" Height="23" Margin="143,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+
+        <Label Content="Vælg en Måleenhed:" HorizontalAlignment="Left" Margin="23,105,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="enhedBox" HorizontalAlignment="Left" Margin="143,105,0,0" VerticalAlignment="Top" Width="138" SelectedIndex="0"/>
+
+        <Label Content="Vælg en Kategori:" HorizontalAlignment="Left" Margin="23,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="kategoribox" HorizontalAlignment="Left" Margin="143,145,0,0" VerticalAlignment="Top" Width="138" SelectedIndex="0"/>
+
+        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="23,189,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="beskrivTxt" HorizontalAlignment="Left" Height="105" Margin="116,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="165"/>
+
+        <Button Name="UpdateKnap" Content="Opdater post" HorizontalAlignment="Left" Margin="172,318,0,0" VerticalAlignment="Top" Width="110" Height="41" Click="Update_Click" />
+        <Button Name="RemoveKnap" Content="Slet post" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" Width="110" Height="41" Click="Remove_Click" />
+
     </Grid>
 </Window>
