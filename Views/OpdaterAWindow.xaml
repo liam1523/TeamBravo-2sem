@@ -1,0 +1,25 @@
+﻿<Window x:Class="TeamBravo___2.Semester___Eksamensopgave.OpdaterAWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
+        mc:Ignorable="d"
+        Title="Opdater affald" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="LightGreen"/>
+                        <GradientStop Offset="0.5" Color="Green"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
+
+        </Border>
+        <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
+        <Label Grid.ColumnSpan="2" Content="Opdater Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
+
+    </Grid>
+</Window>

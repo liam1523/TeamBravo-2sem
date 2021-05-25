@@ -1,0 +1,33 @@
+﻿<Window x:Class="TeamBravo___2.Semester___Eksamensopgave.StartsideWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
+        mc:Ignorable="d"
+        Title="StartsideWindow" Height="500" Width="1000" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="LightGreen"/>
+                        <GradientStop Offset="0.5" Color="Green"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
+        <Label Grid.ColumnSpan="2" Content="Virksomheds ID :" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
+        <Label Name="IDlabel" Grid.ColumnSpan="2" Content="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="170,8,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="100"/>
+        <Button Grid.ColumnSpan="2" Content="Affald" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="165,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="AffaldBtn_Click"/>
+        <Button Grid.ColumnSpan="2" Content="Statistikker" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="425,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="StatistikBtn_Click"/>
+        <Button Grid.ColumnSpan="2" Content="Virksomheder" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="700,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="VirksomhederBtn_Click" />
+        <Label Name="velkLabel" Grid.ColumnSpan="2" Content="Velkommen" Foreground="White" FontWeight="Bold" FontSize="30" HorizontalAlignment="Left" Margin="311,65,0,0" VerticalAlignment="Top" Height="71" Width="388" HorizontalContentAlignment="Center"/>
+        
+    </Grid>
+</Window>

@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace TeamBravo___2.Semester___Eksamensopgave
+{
+
+    public enum MaaleEnhed
+    {
+        Colli = 1,
+        Stk = 2,
+        Ton = 3,
+        Kilogram = 4,
+        Gram = 5,
+        M3 = 6,
+        Liter = 7,
+        Hektoliter = 8
+
+    }
+
+    public enum Kategori
+    {
+        Batterier = 1,
+        Biler = 2,
+        Elektronikaffald = 3,
+        ImprægneretTræ = 4,
+        Inventar = 5,
+        OrganiskAffald = 6,
+        PapOgPapir = 7,
+        Plastemballager = 8,
+        PVC = 9
+
+    }
+
+    public partial class OpretAWindow : Window
+    {
+        public int VirksomhedID;
+        public string Brugernavn;
+        public SqlRepository sql = new SqlRepository();
+
+        public OpretAWindow(string brugernavn, int virksomhedid)
+        {
+            InitializeComponent();
+
+            VirksomhedID = virksomhedid;
+            Brugernavn = brugernavn;
+            enhedBox.ItemsSource = Enum.GetValues(typeof(MaaleEnhed));
+            kategoribox.ItemsSource = Enum.GetValues(typeof(Kategori));
+
+        }
+
+        private void Opret_Click(object sender, RoutedEventArgs e)
+        {
+            decimal mængde = 0;
+            int måleenhed = 0;
+            int kategori = 0;
+            string beskrivelse = "";
+
+            try
+            {
+                mængde = Convert.ToDecimal(maengdeTxt.Text.Trim().Replace(",", "."));
+                switch (enhedBox.SelectedItem)
+                {
+                    case MaaleEnhed.Colli:
+                        måleenhed = 1;
+                        break;
+                    case MaaleEnhed.Stk:
+                        måleenhed = 2;
+                        break;
+                    case MaaleEnhed.Ton:
+                        måleenhed = 3;
+                        break;
+                    case MaaleEnhed.Kilogram:
+                        måleenhed = 4;
+                        break;
+                    case MaaleEnhed.Gram:
+                        måleenhed = 5;
+                        break;
+                    case MaaleEnhed.M3:
+                        måleenhed = 6;
+                        break;
+                    case MaaleEnhed.Liter:
+                        måleenhed = 7;
+                        break;
+                    case MaaleEnhed.Hektoliter:
+                        måleenhed = 8;
+                        break;
+                    default:
+                        break;
+                }
+                kategori = 0;
+                switch (kategoribox.SelectedItem)
+                {
+                    case Kategori.Batterier:
+                        kategori = 1;
+                        break;
+                    case Kategori.Biler:
+                        kategori = 2;
+                        break;
+                    case Kategori.Elektronikaffald:
+                        kategori = 3;
+                        break;
+                    case Kategori.ImprægneretTræ:
+                        kategori = 4;
+                        break;
+                    case Kategori.Inventar:
+                        kategori = 5;
+                        break;
+                    case Kategori.OrganiskAffald:
+                        kategori = 6;
+                        break;
+                    case Kategori.PapOgPapir:
+                        kategori = 7;
+                        break;
+                    case Kategori.Plastemballager:
+                        kategori = 8;
+                        break;
+                    case Kategori.PVC:
+                        kategori = 9;
+                        break;
+                    default:
+                        break;
+                }
+                beskrivelse = beskrivTxt.Text.Trim();
+
+                sql.Add(mængde, måleenhed, kategori, beskrivelse, Brugernavn, VirksomhedID);
+
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Feltet med mængden må ikke være tomt!");
+            }
+
+        }
+
+    }
+
+}
