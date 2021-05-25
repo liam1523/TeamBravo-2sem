@@ -60,8 +60,11 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
             }
 
+            //Hvad watcher skal kigge efter
             watcher.NotifyFilter = NotifyFilters.FileName | NotifyFilters.DirectoryName;
             watcher.Filter = "*.csv";
+
+            //watcher Created event når der bliver lagt en fil i Dropzone mappen
             watcher.Created += (s, e) =>
             {
                 MessageBoxResult result = Dispatcher.Invoke(() => MessageBox.Show("Ny CSV fil tilføjet til mappe! Vil du åbne den nu?", "Meddelse", MessageBoxButton.YesNo, MessageBoxImage.Information));
