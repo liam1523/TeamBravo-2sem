@@ -26,23 +26,14 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             }
         }
 
-        public void OnCompleted()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnError(Exception error)
-        {
-            throw new NotImplementedException();
-        }
-
         public void OnNext(string filepath)
         {
             string[] lines = File.ReadAllLines(filepath);
-            foreach (var item in lines)
+            foreach (var række in lines)
             {
-                var split = item.Split(';');
-                affaldsposts.Add(new Affaldspost
+                var split = række.Split(';');
+
+                Affaldspost affaldspost = new Affaldspost
                 {
                     ID = int.Parse(split[0]),
                     Maengde = decimal.Parse(split[1]),
@@ -52,10 +43,32 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                     Ansvarlig = split[5],
                     VirksomhedID = int.Parse(split[6]),
                     Dato = (DateTime)DateTime.Parse(split[7])
-                });
+
+                };
+
+                if (affaldspost.IsValid)
+                {
+                    affaldsposts.Add(affaldspost);
+
+                }
+                else
+                {
+                    
+
+                }
 
             }
 
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
         }
 
         public virtual void Unsubscribe()

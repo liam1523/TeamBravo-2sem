@@ -23,6 +23,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         {
             InitializeComponent();
             Dispatcher.Invoke(() => nyfilGrid.ItemsSource = affaldsposts);
+
         }
 
     }

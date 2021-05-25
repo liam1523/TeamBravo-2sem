@@ -197,6 +197,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                     {
                         Brugernavn = reader[0].ToString(),
                         VirksomhedID = Convert.ToInt32(reader[1])
+
                     });
 
                 }
@@ -206,13 +207,16 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             {
                 ErrorLogger.SaveMsg($"Noget gik galt under hentning af brugere! : {ex.Message}");
                 return null;
+
             }
             finally
             {
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
                 {
                     cnn.Close();
+
                 }
+
             }
 
             return users;

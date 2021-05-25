@@ -43,12 +43,10 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 Directory.CreateDirectory("C:\\Dropzone");
             }
 
-            //Push-based notifikationer - Observable pattern
             FileReporter fileReporter = new FileReporter();
             FileTracker fileTracker = new FileTracker();
             fileReporter.Subscribe(fileTracker);
 
-            //Tjekker de filer der bliver lagt ind i Dropzone mappen
             FileSystemWatcher watcher = new FileSystemWatcher();
             try
             {
@@ -60,23 +58,19 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
             }
 
-            //Hvad watcher skal kigge efter
-            watcher.NotifyFilter = NotifyFilters.FileName | NotifyFilters.DirectoryName;
             watcher.Filter = "*.csv";
 
-            //watcher Created event når der bliver lagt en fil i Dropzone mappen
             watcher.Created += (s, e) =>
             {
-                MessageBoxResult result = Dispatcher.Invoke(() => MessageBox.Show("Ny CSV fil tilføjet til mappe! Vil du åbne den nu?", "Meddelse", MessageBoxButton.YesNo, MessageBoxImage.Information));
+                MessageBoxResult result = Dispatcher.Invoke(() => MessageBox.Show("Ny CSV fil tilføjet til mappe! " +
+                    "Vil du åbne den nu?", "Meddelse", MessageBoxButton.YesNo, MessageBoxImage.Information));
                 if (result == MessageBoxResult.Yes)
                 {
                     Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
                     fileReporter.affaldsposts.Clear();
 
-                    //Notifikation til FileReporter
                     fileTracker.TrackFile(e.FullPath);
 
-                    //Åbner nyt vindue som en tråd
                     Thread thread = new Thread(() => OpenFile(fileReporter.affaldsposts));
                     thread.IsBackground = true;
                     thread.SetApartmentState(ApartmentState.STA);
