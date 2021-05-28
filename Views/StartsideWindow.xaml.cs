@@ -114,7 +114,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         private void StatistikBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            StatistikWindow stw = new StatistikWindow(VirkID);
+            StatistikWindow stw = new StatistikWindow();
             stw.ShowDialog();
             this.Visibility = Visibility.Visible;
 

@@ -100,7 +100,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                     default:
                         break;
                 }
-                kategori = 0;
                 switch (kategoribox.SelectedItem)
                 {
                     case Kategori.Batterier:
@@ -135,13 +134,20 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 }
                 beskrivelse = beskrivTxt.Text.Trim();
 
-                sql.Add(mængde, måleenhed, kategori, beskrivelse, Brugernavn, VirksomhedID);
-
-                this.Close();
+                if (måleenhed != 0 && kategori != 0)
+                {
+                    sql.Add(mængde, måleenhed, kategori, beskrivelse, Brugernavn, VirksomhedID);
+                    MessageBox.Show("Affaldspost oprettet!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Alle felter skal være fyldt!");
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Feltet med mængden må ikke være tomt!");
+                MessageBox.Show("Alle felter skal være fyldt!");
             }
 
         }

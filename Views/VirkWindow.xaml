@@ -19,8 +19,19 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Virksomheder" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <DataGrid Name="virksomhedGrid" HorizontalAlignment="Left" Height="330" Margin="268,75,0,0" VerticalAlignment="Top" Width="621" IsReadOnly="True" CanUserAddRows="False"/>
-        <ListBox Name="listResult" HorizontalAlignment="Left" Height="330" Margin="36,75,0,0" VerticalAlignment="Top" Width="186" MouseDoubleClick="ListBox_MouseDoubleClick"
+        <DataGrid Name="virksomhedGrid" HorizontalAlignment="Left" Height="330" Margin="268,75,0,0" VerticalAlignment="Top" Width="621" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
+                <DataGridTextColumn Header="Måleenhed" Binding="{Binding Maaleenhed}"/>
+                <DataGridTextColumn Header="Kategori" Binding="{Binding Kategori}"/>
+                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Beskrivelse}"/>
+                <DataGridTextColumn Header="Ansvarlig" Binding="{Binding Ansvarlig}"/>
+                <DataGridTextColumn Header="VirksomhedID" Binding="{Binding VirksomhedID}"/>
+                <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+            <ListBox Name="listResult" HorizontalAlignment="Left" Height="330" Margin="36,75,0,0" VerticalAlignment="Top" Width="186" MouseDoubleClick="ListBox_MouseDoubleClick"
                  FontSize="15"/>
 
     </Grid>

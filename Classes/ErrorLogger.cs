@@ -16,6 +16,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             using (StreamWriter w = File.AppendText(_rootpath + "/Logfiles/log.txt"))
             {
                 Log(errmsg, w);
+
             }
 
         }

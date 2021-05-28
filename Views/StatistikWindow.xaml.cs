@@ -30,7 +30,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         public DateTime startTime { get; set; }
         public Func<double, string> Formatter { get; set; }
         public SqlRepository sql = new SqlRepository();
-        public int VirksomhedID;
 
         public class DatoModel
         {
@@ -39,21 +38,21 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public StatistikWindow(int virksomhedid)
+        public StatistikWindow()
         {
             InitializeComponent();
-            VirksomhedID = virksomhedid;
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             DataContext = this;
 
             seriesCollection = new SeriesCollection();
 
             myChart.Zoom = LiveCharts.ZoomingOptions.Xy;
+
             string start = "2021-05-03 08:00:00";
             this.startTime = DateTime.ParseExact(start, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
             this.Formatter = value => new DateTime((long)value).ToString("yyyy-MM-dd HH:mm");
 
-            var kategorier = sql.GetKategorier(VirksomhedID);
+            var kategorier = sql.GetKategorier();
             if (kategorier != null)
             {
                 int tal = 1;
@@ -77,8 +76,11 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         public DatoModel[] MakeChartValues(int kategori, int maaleenhed)
         {
-            DateTime[] dates = sql.GetChartDates(kategori, maaleenhed, VirksomhedID);
-            double[] values = sql.GetChartPosts(kategori, maaleenhed, VirksomhedID);
+            //DateTime[] dates = sql.GetChartDates(kategori, maaleenhed, VirksomhedID);
+            //double[] values = sql.GetChartPosts(kategori, maaleenhed, VirksomhedID);
+
+            DateTime[] dates = sql.GetChartDates(kategori, maaleenhed);
+            double[] values = sql.GetChartPosts(kategori, maaleenhed);
 
             Array.Sort(dates);
 
@@ -345,5 +347,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MinValue = double.NaN;
             myChart.AxisY[0].MaxValue = double.NaN;
         }
+
     }
+
 }
