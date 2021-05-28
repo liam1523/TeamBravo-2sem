@@ -19,9 +19,31 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <DataGrid Name="affaldGrid" HorizontalAlignment="Left" Height="330" Margin="60,75,0,0" VerticalAlignment="Top" Width="860" IsReadOnly="True" CanUserAddRows="False"/>
+        <DataGrid Name="affaldGrid" HorizontalAlignment="Left" Height="297" Margin="60,108,0,0" VerticalAlignment="Top" Width="860" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
+                <DataGridTextColumn Header="Måleenhed" Binding="{Binding Maaleenhed}"/>
+                <DataGridTextColumn Header="Kategori" Binding="{Binding Kategori}"/>
+                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Beskrivelse}"/>
+                <DataGridTextColumn Header="Ansvarlig" Binding="{Binding Ansvarlig}"/>
+                <DataGridTextColumn Header="VirksomhedID" Binding="{Binding VirksomhedID}"/>
+                <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
         <Button Content="Opret ny affaldspost" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="770,422,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Opret_Click"/>
-        <Button Content="Eksporter affaldsposter" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="60,422,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Export_Click" />
+        <Button Content="Eksporter affaldsposter" Background="DarkGreen" Opacity="0.8" Foreground="Gray" HorizontalAlignment="Left" Margin="60,422,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Export_Click" IsEnabled="False" />
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="60,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="300,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="420,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Søg" HorizontalAlignment="Left" Margin="545,80,0,0" VerticalAlignment="Top" Width="101" Height="23"/>
+        <Label Content="Måleenhed" HorizontalAlignment="Left" Margin="60,55,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kategori" HorizontalAlignment="Left" Margin="180,55,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ansvarlig" HorizontalAlignment="Left" Margin="300,55,0,0" VerticalAlignment="Top"/>
+        <Label Content="VirksomhedID" HorizontalAlignment="Left" Margin="420,55,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

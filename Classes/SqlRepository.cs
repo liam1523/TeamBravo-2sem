@@ -19,13 +19,13 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public int[] GetKategorier(int virksomhedid)
+        public int[] GetKategorier()
         {
-            int[] kategorier = new int[8];
+            List<int> liste = new List<int>();
 
             try
             {
-                string command = string.Format("SELECT Kategori FROM Affaldspost WHERE VirksomhedID = {0}", virksomhedid);
+                string command = string.Format("SELECT Kategori FROM Affaldspost");
                 SqlCommand cmd = new SqlCommand(command, cnn);
                 cnn.Open();
 
@@ -33,16 +33,16 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
                 while (reader.Read())
                 {
-                    for (int i = 0; i < kategorier.Length; i++)
-                    {
-                        kategorier[i] = Convert.ToInt32(reader[0]);
-                    }
+                    liste.Add(Convert.ToInt32(reader[0]));
+
                 }
+
             }
             catch (Exception ex)
             {
                 ErrorLogger.SaveMsg($"Noget gik galt under hentning af kategorier! : {ex.Message}");
                 return null;
+
             }
             finally
             {
@@ -52,18 +52,24 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 }
             }
 
+            int[] kategorier = new int[liste.Count];
+            for (int i = 0; i < kategorier.Length; i++)
+            {
+                kategorier[i] = liste[i];
+
+            }
+
             return kategorier;
 
         }
 
-        public double[] GetChartPosts(int kategori, int maaleenhed, int virksomhedid)
+        public double[] GetChartPosts(int kategori, int maaleenhed)
         {
             List<double> tal = new List<double>();
 
             try
             {
-                string command = string.Format("SELECT Maengde FROM Affaldspost WHERE Kategori = {0} AND Maaleenhed = {1} " +
-                    "AND VirksomhedID = {2}", kategori, maaleenhed, virksomhedid);
+                string command = string.Format("SELECT Maengde FROM Affaldspost WHERE Kategori = {0} AND Maaleenhed = {1}", kategori, maaleenhed);
                 SqlCommand cmd = new SqlCommand(command, cnn);
                 cnn.Open();
 
@@ -80,13 +86,16 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             {
                 ErrorLogger.SaveMsg($"Noget gik galt under hentning af mængder til chart!  : {ex.Message}");
                 return null;
+
             }
             finally
             {
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
                 {
                     cnn.Close();
+
                 }
+
             }
 
 
@@ -100,14 +109,13 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public DateTime[] GetChartDates(int kategori, int maaleenhed, int virksomhedid)
+        public DateTime[] GetChartDates(int kategori, int maaleenhed)
         {
             List<DateTime> dateTimes = new List<DateTime>();
 
             try
             {
-                string command = string.Format("SELECT Dato FROM Affaldspost WHERE Kategori = {0} AND Maaleenhed = {1} " +
-                    "AND VirksomhedID = {2}", kategori, maaleenhed, virksomhedid);
+                string command = string.Format("SELECT Dato FROM Affaldspost WHERE Kategori = {0} AND Maaleenhed = {1}", kategori, maaleenhed);
                 SqlCommand cmd = new SqlCommand(command, cnn);
                 cnn.Open();
 
