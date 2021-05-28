@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
-{   //Hej med dig Liam//
+{   //Hej med dig Ditte//
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
