@@ -19,7 +19,7 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Ny fil" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <DataGrid Name="nyfilGrid" HorizontalAlignment="Left" Height="339" Margin="70,63,0,0" VerticalAlignment="Top" Width="653" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+        <DataGrid Name="nyfilGrid" HorizontalAlignment="Left" Height="301" Margin="70,63,0,0" VerticalAlignment="Top" Width="653" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
@@ -31,6 +31,7 @@
                 <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Name="ImportKnap" Content="Import til database" HorizontalAlignment="Left" Margin="70,369,0,0" VerticalAlignment="Top" Width="110" Height="30" Background="DarkGreen" Opacity="0.8" Foreground="White" Click="ImportToDb_Click"/>
 
     </Grid>
 </Window>

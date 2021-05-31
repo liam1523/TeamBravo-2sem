@@ -23,7 +23,7 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Virksomheds ID :" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <Label Name="IDlabel" Grid.ColumnSpan="2" Content="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="170,8,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="100"/>
+        <Label Name="IDlabel" Grid.ColumnSpan="2" Content="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="170,8,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="249"/>
         <Button Grid.ColumnSpan="2" Content="Affald" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="165,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="AffaldBtn_Click"/>
         <Button Grid.ColumnSpan="2" Content="Statistikker" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="425,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="StatistikBtn_Click"/>
         <Button Grid.ColumnSpan="2" Content="Virksomheder" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="700,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="VirksomhederBtn_Click" />

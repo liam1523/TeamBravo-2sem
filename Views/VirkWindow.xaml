@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="VirkWindow" Height="500" Width="940">
     <Grid>
@@ -19,20 +20,38 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Virksomheder" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <DataGrid Name="virksomhedGrid" HorizontalAlignment="Left" Height="330" Margin="268,75,0,0" VerticalAlignment="Top" Width="621" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
-                <DataGridTextColumn Header="Måleenhed" Binding="{Binding Maaleenhed}"/>
-                <DataGridTextColumn Header="Kategori" Binding="{Binding Kategori}"/>
-                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Beskrivelse}"/>
-                <DataGridTextColumn Header="Ansvarlig" Binding="{Binding Ansvarlig}"/>
-                <DataGridTextColumn Header="VirksomhedID" Binding="{Binding VirksomhedID}"/>
-                <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-            <ListBox Name="listResult" HorizontalAlignment="Left" Height="330" Margin="36,75,0,0" VerticalAlignment="Top" Width="186" MouseDoubleClick="ListBox_MouseDoubleClick"
-                 FontSize="15"/>
+        <ContentControl Name="Content1" Margin="248,60,0,0" Visibility="Visible">
+            <DataGrid Name="virksomhedGrid" HorizontalAlignment="Left" Height="330" Margin="32,15,0,0" VerticalAlignment="Top" Width="621" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                    <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
+                    <DataGridTextColumn Header="Måleenhed" Binding="{Binding Maaleenhed}"/>
+                    <DataGridTextColumn Header="Kategori" Binding="{Binding Kategori}"/>
+                    <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Beskrivelse}"/>
+                    <DataGridTextColumn Header="Ansvarlig" Binding="{Binding Ansvarlig}"/>
+                    <DataGridTextColumn Header="VirksomhedID" Binding="{Binding VirksomhedID}"/>
+                    <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ContentControl>
+        <ContentControl Name="Content2" Margin="248,60,0,0" Visibility="Hidden">
+            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" FontWeight="Bold">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Kategorier" Labels="{Binding Labels}" Foreground="Black" FontWeight="Bold"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Mængde" LabelFormatter="{Binding Formatter}" Foreground="Black" FontWeight="Bold"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+        </ContentControl>
+
+        <ListBox Name="listResult" HorizontalAlignment="Left" Height="224" Margin="36,75,0,0" VerticalAlignment="Top" Width="186" MouseDoubleClick="ListBox_MouseDoubleClick"
+                 FontSize="15">
+        </ListBox>
+        <Button Name="ImportKnap" Content="Import til database" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="44,409,0,0" VerticalAlignment="Top" Width="170" Height="39" Click="ImportKnap_Click" FontWeight="Bold"/>
+        <Label Name="FilLabel" Content="" HorizontalAlignment="Left" Margin="11,353,0,0" VerticalAlignment="Top" Width="237" Foreground="White" FontSize="25" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Button Name="GridKnap" Content="Datagrid" IsEnabled="False" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="36,316,0,0" VerticalAlignment="Top" Width="75" Height="32" FontWeight="Bold" Click="GridKnap_Click"/>
+        <Button Name="ChartKnap" Content="Chart" IsEnabled="True" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="147,316,0,0" VerticalAlignment="Top" Width="75" Height="32" FontWeight="Bold" Click="ChartKnap_Click"/>
 
     </Grid>
 </Window>

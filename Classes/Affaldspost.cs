@@ -30,7 +30,8 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             get {
                 return 
                   Maaleenhed <= 8 && Maaleenhed > 0 &&
-                  Kategori <= 9 && Kategori > 0;
+                  Kategori <= 9 && Kategori > 0 && 
+                  VirksomhedID.ToString().Length == 8;
             }
 
         }
