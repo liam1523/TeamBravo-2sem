@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
         mc:Ignorable="d"
-        Title="NyFilWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="NyFilWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Border Grid.ColumnSpan="2">
             <Border.Background>

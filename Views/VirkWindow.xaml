@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="VirkWindow" Height="500" Width="940">
+        Title="VirkWindow" Height="500" Width="940" ResizeMode="NoResize">
     <Grid>
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
@@ -48,7 +48,7 @@
         <ListBox Name="listResult" HorizontalAlignment="Left" Height="224" Margin="36,75,0,0" VerticalAlignment="Top" Width="186" MouseDoubleClick="ListBox_MouseDoubleClick"
                  FontSize="15">
         </ListBox>
-        <Button Name="ImportKnap" Content="Import til database" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="44,409,0,0" VerticalAlignment="Top" Width="170" Height="39" Click="ImportKnap_Click" FontWeight="Bold"/>
+        <Button Name="ImportKnap" Content="Import til database" IsEnabled="True" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="44,409,0,0" VerticalAlignment="Top" Width="170" Height="39" Click="ImportKnap_Click" FontWeight="Bold"/>
         <Label Name="FilLabel" Content="" HorizontalAlignment="Left" Margin="11,353,0,0" VerticalAlignment="Top" Width="237" Foreground="White" FontSize="25" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Button Name="GridKnap" Content="Datagrid" IsEnabled="False" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="36,316,0,0" VerticalAlignment="Top" Width="75" Height="32" FontWeight="Bold" Click="GridKnap_Click"/>
         <Button Name="ChartKnap" Content="Chart" IsEnabled="True" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="147,316,0,0" VerticalAlignment="Top" Width="75" Height="32" FontWeight="Bold" Click="ChartKnap_Click"/>

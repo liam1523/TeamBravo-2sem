@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
         mc:Ignorable="d"
-        Title="Opret affald" Height="400" Width="307.588" WindowStartupLocation="CenterScreen">
+        Title="Opret affald" Height="400" Width="307.588" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>

@@ -84,7 +84,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 {
                     sql.Import(post.Maengde, post.Maaleenhed, post.Kategori, post.Beskrivelse, post.Ansvarlig, post.VirksomhedID, post.Dato);
 
-
                 }
                 MessageBox.Show("Affaldsposter importeret til databasen!");
             }
