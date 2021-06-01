@@ -22,6 +22,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// </summary>
     public partial class VirkWindow : Window
     {
+        public List<Affaldspost> data = new List<Affaldspost>();
+        public SqlRepository sql = new SqlRepository();
+
         public VirkWindow()
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
@@ -39,12 +42,16 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            ImportKnap.IsEnabled = true;
+            ImportKnap.Foreground = Brushes.White;
+
             string filename = listResult.SelectedItem.ToString();
+            FilLabel.Content = filename;
 
             string path = string.Format("C:\\Dropzone\\{0}", filename);
             var lines = File.ReadAllLines(path);
 
-            List<Affaldspost> data = new List<Affaldspost>();
+            data.Clear();
 
             foreach (var item in lines)
             {
@@ -58,13 +65,58 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                     Beskrivelse = split[4],
                     Ansvarlig = split[5],
                     VirksomhedID = int.Parse(split[6]),
-                    Dato = (DateTime)DateTime.Parse(split[7])
+                    Dato = DateTime.Parse(split[7])
 
                 });
 
             }
 
+            virksomhedGrid.ItemsSource = null;
             virksomhedGrid.ItemsSource = data;
+
+        }
+
+        private void ImportKnap_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                foreach (Affaldspost post in data)
+                {
+                    sql.Import(post.Maengde, post.Maaleenhed, post.Kategori, post.Beskrivelse, post.Ansvarlig, post.VirksomhedID, post.Dato);
+
+                }
+                MessageBox.Show("Affaldsposter importeret til databasen!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ikke muligt at importerer til databasen! : {ex.Message}");
+
+            }
+            finally
+            {
+                ImportKnap.IsEnabled = false;
+                ImportKnap.Foreground = Brushes.Gray;
+
+            }
+
+
+        }
+
+        private void GridKnap_Click(object sender, RoutedEventArgs e)
+        {
+            Content2.Visibility = Visibility.Hidden;
+            Content1.Visibility = Visibility.Visible;
+            GridKnap.IsEnabled = false;
+            ChartKnap.IsEnabled = true;
+
+        }
+
+        private void ChartKnap_Click(object sender, RoutedEventArgs e)
+        {
+            Content2.Visibility = Visibility.Visible;
+            Content1.Visibility = Visibility.Hidden;
+            GridKnap.IsEnabled = true;
+            ChartKnap.IsEnabled = false;
 
         }
 

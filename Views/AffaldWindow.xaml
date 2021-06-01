@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
         mc:Ignorable="d"
-        Title="Window1" Height="500" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="AffaldWindow" Height="500" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
@@ -19,7 +19,7 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <DataGrid Name="affaldGrid" HorizontalAlignment="Left" Height="297" Margin="60,108,0,0" VerticalAlignment="Top" Width="860" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+        <DataGrid Name="affaldGrid" HorizontalAlignment="Left" Height="297" Margin="60,108,0,0" VerticalAlignment="Top" Width="860" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="affaldGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
@@ -30,16 +30,25 @@
                 <DataGridTextColumn Header="VirksomhedID" Binding="{Binding VirksomhedID}"/>
                 <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="affaldGrid_MouseDoubleClick"/>
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </Style.Resources>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
         
         <Button Content="Opret ny affaldspost" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="770,422,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Opret_Click"/>
-        <Button Content="Eksporter affaldsposter" Background="DarkGreen" Opacity="0.8" Foreground="Gray" HorizontalAlignment="Left" Margin="60,422,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Export_Click" IsEnabled="False" />
+        <Button Name="ExportKnap" Content="Eksporter affaldsposter" Background="DarkGreen" Opacity="0.8" Foreground="Gray" HorizontalAlignment="Left" Margin="60,422,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Export_Click" IsEnabled="False" />
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="60,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="300,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="420,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Søg" HorizontalAlignment="Left" Margin="545,80,0,0" VerticalAlignment="Top" Width="101" Height="23"/>
+        <TextBox Name="måleTxt" HorizontalAlignment="Left" Height="23" Margin="60,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="måleenhed_Changed"/>
+        <TextBox Name="kategoriTxt" HorizontalAlignment="Left" Height="23" Margin="180,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="kategori_Changed" />
+        <TextBox Name="ansvarTxt" HorizontalAlignment="Left" Height="23" Margin="300,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ansvarlig_Changed" />
+        <TextBox Name="virkTxt" HorizontalAlignment="Left" Height="23" Margin="420,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="virkId_Changed"/>
+        <Button Name="SøgKnap" Content="Søg" HorizontalAlignment="Left" Margin="567,80,0,0" VerticalAlignment="Top" Width="101" Height="23" Click="Search_Click" IsEnabled="False" Background="DarkGreen" Opacity="0.8" Foreground="Gray"/>
+        <Button Name="ClearKnap" Content="Clear fields" HorizontalAlignment="Left" Margin="688,80,0,0" VerticalAlignment="Top" Width="101" Height="23" Click="ClearFields_Click" Background="DarkGreen" Opacity="0.8" Foreground="White"/>
         <Label Content="Måleenhed" HorizontalAlignment="Left" Margin="60,55,0,0" VerticalAlignment="Top"/>
         <Label Content="Kategori" HorizontalAlignment="Left" Margin="180,55,0,0" VerticalAlignment="Top"/>
         <Label Content="Ansvarlig" HorizontalAlignment="Left" Margin="300,55,0,0" VerticalAlignment="Top"/>

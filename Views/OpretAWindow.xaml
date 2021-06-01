@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
         mc:Ignorable="d"
-        Title="Opret affald" Height="400" Width="350" WindowStartupLocation="CenterScreen">
+        Title="Opret affald" Height="400" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
@@ -30,11 +30,11 @@
         <Label Content="Kategori" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="kategoribox" HorizontalAlignment="Left" Margin="130,163,0,0" VerticalAlignment="Top" Width="190"/>
 
-        <Label Content="Beskrivelse" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top"/>
+        <Label Content="Beskrivelse:" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top"/>
         <TextBox Name="beskrivTxt" HorizontalAlignment="Left" Height="53" Margin="130,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
 
         <Button Name="OpretKnap" Content="Opret" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="20,275,0,0" VerticalAlignment="Top" Width="130" Height="46" Click="Opret_Click"/>
-        <Button Name="AnnullerKnap" Content="Annullér" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="190,275,0,0" VerticalAlignment="Top" Width="130" Height="46"/>
+        <Button Name="AnnullerKnap" Content="Annullér" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="190,275,0,0" VerticalAlignment="Top" Width="130" Height="46" Click="Cancel_Click"/>
 
     </Grid>
 </Window>

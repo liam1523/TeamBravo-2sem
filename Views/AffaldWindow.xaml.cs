@@ -18,14 +18,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
-{   //Hej med dig Ditte - SUP//
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
+{
+
     public partial class AffaldWindow : Window
     {
         public ObservableCollection<Affaldspost> affaldsposter = new ObservableCollection<Affaldspost>();
-        public SqlRepository sqlRepository = new SqlRepository();
+        public SqlRepository sql = new SqlRepository();
 
         public int VirksomhedID;
         public string Brugernavn;
@@ -36,13 +34,13 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             VirksomhedID = virksomhedid;
             Brugernavn = brugernavn;
-            affaldsposter = sqlRepository.GetAffaldsposts();
+            affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
+            
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
         {
-            affaldGrid.SelectAllCells();
             affaldGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;
             ApplicationCommands.Copy.Execute(null, affaldGrid);
             affaldGrid.UnselectAllCells();
@@ -90,8 +88,97 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             opretA.ShowDialog();
 
             affaldsposter.Clear();
-            affaldsposter = sqlRepository.GetAffaldsposts();
+            affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            affaldGrid.UnselectAll();
+
+            var måleenhed = måleTxt.Text.Trim();
+            var kategori = kategoriTxt.Text.Trim();
+            var ansvarlig = ansvarTxt.Text.Trim();
+            var virksomhedid = virkTxt.Text.Trim();
+
+            affaldsposter.Clear();
+
+            affaldsposter = sql.Search(
+                måleenhed, kategori, ansvarlig, virksomhedid);
+
+            affaldGrid.ItemsSource = affaldsposter;
+
+        }
+
+        private void måleenhed_Changed(object sender, TextChangedEventArgs e)
+        {
+            SøgKnap.IsEnabled = true;
+            SøgKnap.Foreground = Brushes.White;
+
+        }
+
+        private void kategori_Changed(object sender, TextChangedEventArgs e)
+        {
+            SøgKnap.IsEnabled = true;
+            SøgKnap.Foreground = Brushes.White;
+
+        }
+
+        private void ansvarlig_Changed(object sender, TextChangedEventArgs e)
+        {
+            SøgKnap.IsEnabled = true;
+            SøgKnap.Foreground = Brushes.White;
+
+        }
+
+        private void virkId_Changed(object sender, TextChangedEventArgs e)
+        {
+            SøgKnap.IsEnabled = true;
+            SøgKnap.Foreground = Brushes.White;
+
+        }
+
+        private void ClearFields_Click(object sender, RoutedEventArgs e)
+        {
+            affaldGrid.UnselectAll();
+            måleTxt.Clear();
+            kategoriTxt.Clear();
+            ansvarTxt.Clear();
+            virkTxt.Clear();
+
+            SøgKnap.IsEnabled = false;
+            SøgKnap.Foreground = Brushes.Gray;
+
+            //GetAffaldsposter her
+
+        }
+
+        private void affaldGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (affaldGrid.SelectedCells.Count == 0)
+            {
+                ExportKnap.IsEnabled = false;
+                ExportKnap.Foreground = Brushes.Gray;
+
+            }
+            else
+            {
+                ExportKnap.IsEnabled = true;
+                ExportKnap.Foreground = Brushes.White;
+
+            }
+
+        }
+
+        private void affaldGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = sender as DataGridRow;
+            Affaldspost affaldspost = (Affaldspost)row.Item;
+            OpdaterAWindow opdaterAWindow = new OpdaterAWindow(affaldspost);
+            opdaterAWindow.ShowDialog();
+
+            //GetAffaldsposter igen
+
         }
 
     }
