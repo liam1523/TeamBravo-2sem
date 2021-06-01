@@ -18,24 +18,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
-{   //Hej med dig Ditte//
+{   //Hej med dig Ditte - SUP//
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
     public partial class AffaldWindow : Window
     {
         public ObservableCollection<Affaldspost> affaldsposter = new ObservableCollection<Affaldspost>();
+        public SqlRepository sqlRepository = new SqlRepository();
 
         public int VirksomhedID;
         public string Brugernavn;
         public AffaldWindow(string brugernavn, int virksomhedid)
+
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             VirksomhedID = virksomhedid;
             Brugernavn = brugernavn;
+            affaldsposter = sqlRepository.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
-
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
@@ -87,6 +89,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             OpretAWindow opretA = new OpretAWindow(Brugernavn, VirksomhedID);
             opretA.ShowDialog();
 
+            affaldsposter.Clear();
+            affaldsposter = sqlRepository.GetAffaldsposts();
+            affaldGrid.ItemsSource = affaldsposter;
         }
 
     }

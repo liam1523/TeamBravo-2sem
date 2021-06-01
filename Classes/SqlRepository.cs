@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -181,12 +182,51 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public void GetPosts(int virksomhedID)
+        public ObservableCollection<Affaldspost> GetAffaldsposts()
         {
+            ObservableCollection<Affaldspost> affaldsposts = new ObservableCollection<Affaldspost>();
 
+            try
+            {
+                string command = string.Format("SELECT * FROM Affaldspost");
+                SqlCommand cmd = new SqlCommand(command, cnn);
+                cnn.Open();
 
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    affaldsposts.Add(new Affaldspost
+                    {
+                        ID = Convert.ToInt32(reader[0]),
+                        Maengde = Convert.ToDecimal(reader[1]),
+                        Maaleenhed = Convert.ToInt32(reader[2]),
+                        Kategori = Convert.ToInt32(reader[3]),
+                        Beskrivelse = reader[4].ToString(),
+                        Ansvarlig = reader[5].ToString(),
+                        VirksomhedID = Convert.ToInt32(reader[6]),
+                        Dato = Convert.ToDateTime(reader[7])
+                    });
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.SaveMsg($"Noget gik galt under hentning af affaldsposter! : {ex.Message}");
+                return null;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return affaldsposts;
 
         }
+
 
         public List<User> GetUsers()
         {
