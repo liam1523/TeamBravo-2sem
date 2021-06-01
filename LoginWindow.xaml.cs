@@ -39,6 +39,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 Environment.Exit(0);
             }
 
+            UserTxt.Focus();
 
         }
 
@@ -82,7 +83,11 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             }
 
         }
-        
+
+        private void UserTxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

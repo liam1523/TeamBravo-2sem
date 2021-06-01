@@ -23,7 +23,7 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Login" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
-        <Button Grid.ColumnSpan="2" Content="Log ind" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="109,222,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Login_Click"/>
+        <Button Grid.ColumnSpan="2" Content="Log ind" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="87,222,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Login_Click" IsDefault="True"/>
         <TextBox Name="UserTxt" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="87,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <PasswordBox Name="PwBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="87,170,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Grid.ColumnSpan="2" Content="Brugernavn" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="84,95,0,0" VerticalAlignment="Top"/>

@@ -187,6 +187,8 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
 
+            MessageBox.Show("Affaldsposter eksporteret!");
+
         }
 
     }
