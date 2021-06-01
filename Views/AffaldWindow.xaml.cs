@@ -87,6 +87,8 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             OpretAWindow opretA = new OpretAWindow(Brugernavn, VirksomhedID);
             opretA.ShowDialog();
 
+            affaldGrid.UnselectAll();
+
             affaldsposter.Clear();
             affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
@@ -149,7 +151,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             SøgKnap.IsEnabled = false;
             SøgKnap.Foreground = Brushes.Gray;
 
-            //GetAffaldsposter her
+            affaldsposter.Clear();
+            affaldsposter = sql.GetAffaldsposts();
+            affaldGrid.ItemsSource = affaldsposter;
 
         }
 
@@ -177,7 +181,11 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             OpdaterAWindow opdaterAWindow = new OpdaterAWindow(affaldspost);
             opdaterAWindow.ShowDialog();
 
-            //GetAffaldsposter igen
+            affaldGrid.UnselectAll();
+
+            affaldsposter.Clear();
+            affaldsposter = sql.GetAffaldsposts();
+            affaldGrid.ItemsSource = affaldsposter;
 
         }
 
