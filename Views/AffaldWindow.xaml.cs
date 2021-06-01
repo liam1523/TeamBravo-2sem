@@ -28,13 +28,15 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         public int VirksomhedID;
         public string Brugernavn;
         public AffaldWindow(string brugernavn, int virksomhedid)
+
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             VirksomhedID = virksomhedid;
             Brugernavn = brugernavn;
+            affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
-
+            
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
@@ -85,6 +87,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             OpretAWindow opretA = new OpretAWindow(Brugernavn, VirksomhedID);
             opretA.ShowDialog();
 
+            affaldsposter.Clear();
+            affaldsposter = sql.GetAffaldsposts();
+            affaldGrid.ItemsSource = affaldsposter;
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)

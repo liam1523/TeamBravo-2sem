@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamBravo___2.Semester___Eksamensopgave"
         mc:Ignorable="d"
-        Title="Opdater affald" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Opdater affald" Height="400" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
@@ -21,27 +21,21 @@
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Content="Opdater Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,20,0,0"/>
 
-        <Label Content="Mængde" HorizontalAlignment="Left" Margin="23,68,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="maengdeTxt" HorizontalAlignment="Left" Height="23" Margin="143,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <Label Content="Mængde:" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="maengdeTxt" HorizontalAlignment="Left" Height="23" Margin="130,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
 
-        <Label Content="Vælg en Måleenhed:" HorizontalAlignment="Left" Margin="23,105,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="enhedBox" HorizontalAlignment="Left" Margin="143,105,0,0" VerticalAlignment="Top" Width="138">
-        </ComboBox>
+        <Label Content="Måleenhed:" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,120,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="enhedBox" HorizontalAlignment="Left" Margin="130,123,0,0" VerticalAlignment="Top" Width="190"/>
 
-        <Label Content="Vælg en Kategori:" HorizontalAlignment="Left" Margin="23,145,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="kategoribox" HorizontalAlignment="Left" Margin="143,145,0,0" VerticalAlignment="Top" Width="138">
-        </ComboBox>
+        <Label Content="Kategori:" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="kategoribox" HorizontalAlignment="Left" Margin="130,163,0,0" VerticalAlignment="Top" Width="190"/>
 
-        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="23,189,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="beskrivTxt" HorizontalAlignment="Left" Height="105" Margin="116,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="165"/>
+        <Label Content="Beskrivelse:" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="beskrivTxt" HorizontalAlignment="Left" Height="53" Margin="130,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
 
-        <Menu Margin="0,0,211,343">
-            <MenuItem Header="Funktioner" Height="20">
-                <MenuItem Header="Slet post" Click="Remove_Click"/>
-            </MenuItem>
-        </Menu>
-        <Button Name="UpdateKnap" Content="Opdater post" HorizontalAlignment="Left" Margin="23,318,0,0" VerticalAlignment="Top" Width="110" Height="41" Click="Update_Click" />
-        <Button Name="CancelKnap" Content="Cancel" HorizontalAlignment="Left" Margin="171,318,0,0" VerticalAlignment="Top" Width="110" Height="41" Click="Cancel_Click" />
+        <Button Name="OpdaterKnap" Content="Opdater" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="20,275,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Update_Click"/>
+        <Button Name="SletKnap" Content="Slet" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="130,275,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Remove_Click"/>
+        <Button Name="AnnullerKnap" Content="Annullér" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="240,275,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Cancel_Click"/>
 
     </Grid>
 </Window>
