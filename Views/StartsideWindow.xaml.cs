@@ -20,24 +20,23 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// <summary>
     /// Interaction logic for StartsideWindow.xaml
     /// </summary>
-    public partial class StartsideWindow : Window
+    /// 
+    public partial class StartsideWindow : Window //Liam
     {
-        public int VirkID;
-        public string Brugernavn;
+        private int VirkID;
+        private string Brugernavn;
 
-        public Thread thread;
+        private Thread thread;
 
         public StartsideWindow(string username, int virksomhedid)
         {
             InitializeComponent();
 
-            //Ændre indhold til at passe med brugeren der er logget ind
             IDlabel.Content = virksomhedid;
             VirkID = virksomhedid;
             Brugernavn = username;
             velkLabel.Content = string.Format("Velkommen, {0}!", Brugernavn);
 
-            //Opretter Dropzone mappen, hvis den ikke allerede eksisterer
             if (!Directory.Exists("C:\\Dropzone"))
             {
                 Directory.CreateDirectory("C:\\Dropzone");
@@ -66,15 +65,34 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                     "Vil du åbne den nu?", "Meddelse", MessageBoxButton.YesNo, MessageBoxImage.Information));
                 if (result == MessageBoxResult.Yes)
                 {
-                    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
-                    fileReporter.affaldsposts.Clear();
+                    try
+                    {
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
+                        fileReporter.affaldsposts.Clear();
 
-                    fileTracker.TrackFile(e.FullPath);
+                        fileTracker.TrackFile(e.FullPath);
 
-                    Thread thread = new Thread(() => OpenFile(fileReporter.affaldsposts));
-                    thread.IsBackground = true;
-                    thread.SetApartmentState(ApartmentState.STA);
-                    thread.Start();
+                        if (fileReporter.affaldsposts.Count != 0)
+                        {
+                            Thread thread = new Thread(() => OpenFile(fileReporter.affaldsposts));
+                            thread.IsBackground = true;
+                            thread.SetApartmentState(ApartmentState.STA);
+                            thread.Start();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Filen er i et forkert format!");
+
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Kunne ikke spore filen!");
+
+                    }
+
 
                 }
 
@@ -84,10 +102,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        //Metode til Thread for at åbne en ny fil
         private void OpenFile(List<Affaldspost> affaldsposts)
         {
-            NyFilWindow nyFilWindow = new NyFilWindow(affaldsposts);
+            NyFilWindow nyFilWindow = new NyFilWindow(affaldsposts, Brugernavn) ;
             nyFilWindow.ShowDialog();
             System.Windows.Threading.Dispatcher.Run();
 
@@ -95,7 +112,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         private void OpenVirksomheder()
         {
-            VirkWindow virkWindow = new VirkWindow();
+            VirkWindow virkWindow = new VirkWindow(Brugernavn);
             virkWindow.ShowDialog();
             thread = null;
             System.Windows.Threading.Dispatcher.Run();
@@ -133,7 +150,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        //For at være helt sikker på at programmet lukker
         private void Window_Closed(object sender, EventArgs e)
         {
             Environment.Exit(0);

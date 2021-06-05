@@ -20,13 +20,13 @@ using System.Windows.Shapes;
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
 
-    public partial class AffaldWindow : Window
+    public partial class AffaldWindow : Window //Liam
     {
-        public ObservableCollection<Affaldspost> affaldsposter = new ObservableCollection<Affaldspost>();
-        public SqlRepository sql = new SqlRepository();
+        private List<Affaldspost> affaldsposter = new List<Affaldspost>();
+        private SqlRepository sql = new SqlRepository();
 
-        public int VirksomhedID;
-        public string Brugernavn;
+        private int VirksomhedID;
+        private string Brugernavn;
         public AffaldWindow(string brugernavn, int virksomhedid)
 
         {
@@ -34,50 +34,73 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             VirksomhedID = virksomhedid;
             Brugernavn = brugernavn;
-            affaldsposter = sql.GetAffaldsposts();
-            affaldGrid.ItemsSource = affaldsposter;
+            affaldsposter = sql.GetAffaldsposts(); //Ditte
+            if (affaldsposter != null)
+            {
+                affaldGrid.ItemsSource = affaldsposter;
+
+            }
+            else
+            {
+                MessageBox.Show("Kunne ikke få fat på affaldsposterne!");
+
+            }
+
             
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
         {
-            affaldGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;
-            ApplicationCommands.Copy.Execute(null, affaldGrid);
-            affaldGrid.UnselectAllCells();
-            string result = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-
-            StringBuilder sb = new StringBuilder();
-            char[] charArray = result.ToCharArray();
+            char[] charArray;
             string substring;
+            StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < charArray.Length; i++)
+            try
             {
-                if (charArray[i] != ',')
+                affaldGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;
+                ApplicationCommands.Copy.Execute(null, affaldGrid);
+                affaldGrid.UnselectAllCells();
+                string result = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+
+                charArray = result.ToCharArray();
+
+                for (int i = 0; i < charArray.Length; i++)
                 {
-                    sb.Append(charArray[i]);
-                }
-                else
-                {
-                    if (charArray[i + 1] == ' ')
+                    if (charArray[i] != ',')
                     {
                         sb.Append(charArray[i]);
                     }
                     else
                     {
-                        sb.Append(';');
+                        if (charArray[i + 1] == ' ')
+                        {
+                            sb.Append(charArray[i]);
+                        }
+                        else
+                        {
+                            sb.Append(';');
+                        }
+
                     }
 
                 }
 
-            }
-            substring = sb.ToString();
+                substring = sb.ToString();
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "CSV Fil (*.csv)|*.csv";
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            if (saveFileDialog.ShowDialog() == true)
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "CSV Fil (*.csv)|*.csv";
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    File.WriteAllText(saveFileDialog.FileName, substring, UnicodeEncoding.UTF8);
+
+                }
+
+            }
+            catch (Exception)
             {
-                File.WriteAllText(saveFileDialog.FileName, substring, UnicodeEncoding.UTF8);
+                MessageBox.Show("Kunne ikke eksporterer de valgte affaldsposter!");
+
             }
 
         }
@@ -92,6 +115,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             affaldsposter.Clear();
             affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
+
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -178,7 +202,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         {
             DataGridRow row = sender as DataGridRow;
             Affaldspost affaldspost = (Affaldspost)row.Item;
-            OpdaterAWindow opdaterAWindow = new OpdaterAWindow(affaldspost);
+            OpdaterAWindow opdaterAWindow = new OpdaterAWindow(affaldspost, Brugernavn);
             opdaterAWindow.ShowDialog();
 
             affaldGrid.UnselectAll();
@@ -186,8 +210,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             affaldsposter.Clear();
             affaldsposter = sql.GetAffaldsposts();
             affaldGrid.ItemsSource = affaldsposter;
-
-            MessageBox.Show("Affaldsposter eksporteret!");
 
         }
 

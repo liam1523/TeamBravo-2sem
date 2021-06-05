@@ -46,14 +46,16 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public Affaldspost Affaldspost { get; set; }
+        private Affaldspost Affaldspost { get; set; }
 
-        public SqlRepository sql = new SqlRepository();
+        private SqlRepository sql = new SqlRepository();
+        private string Brugernavn;
 
-        public OpdaterAWindow(Affaldspost affaldspost)
+        public OpdaterAWindow(Affaldspost affaldspost, string brugernavn)
         {
             InitializeComponent();
             Affaldspost = affaldspost;
+            Brugernavn = brugernavn;
             enhedBox.ItemsSource = Enum.GetValues(typeof(MaaleEnhed));
             kategoribox.ItemsSource = Enum.GetValues(typeof(Kategori));
             maengdeTxt.Text = affaldspost.Maengde.ToString();
@@ -206,15 +208,14 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
                 sql.UpdatePost(affaldspost);
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ikke muligt at opdaterer post! : {ex.Message}");
+                MessageBox.Show("Affaldspost opdateret!");
+                ErrorLogger.SaveMsg($"{Brugernavn} har opdateret en affaldspost. {DateTime.Now}");
+                this.Close();
 
             }
-            finally
+            catch (Exception)
             {
-                this.Close();
+                MessageBox.Show("Mængden er i et forkert format!");
 
             }
 
@@ -225,15 +226,14 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             try
             {
                 sql.RemovePost(Affaldspost.ID);
+                MessageBox.Show("Affaldspost slettet!");
+                ErrorLogger.SaveMsg($"{Brugernavn} har slettet en affaldspost. {DateTime.Now}");
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ikke muligt at slette posten! : {ex.Message}");
 
-            }
-            finally
-            {
-                this.Close();
             }
 
         }

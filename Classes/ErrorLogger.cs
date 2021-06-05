@@ -21,7 +21,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public static void Log(string logMsg, TextWriter w)
+        private static void Log(string logMsg, TextWriter w)
         {
             w.Write("\r\nLog Entry : ");
             w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");

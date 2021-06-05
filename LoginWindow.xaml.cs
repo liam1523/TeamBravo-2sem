@@ -16,33 +16,30 @@ using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
+        //Liam
         SqlRepository sql = new SqlRepository();
         List<User> users = new List<User>();
 
+        //Liam
         public LoginWindow()
         {
             InitializeComponent();
 
             users = sql.GetUsers();
-            if (users != null)
-            {
-                
-            }
-            else
+            if (users == null)
             {
                 MessageBox.Show("Ingen forbindelse til databasen.");
                 Environment.Exit(0);
+
             }
 
             UserTxt.Focus();
 
         }
 
+        //Liam
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string username = UserTxt.Text.Trim();
@@ -84,10 +81,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        private void UserTxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
 }
