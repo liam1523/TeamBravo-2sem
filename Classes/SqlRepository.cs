@@ -10,8 +10,8 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 {
     public class SqlRepository
     {
-        public string connectionString;
-        public SqlConnection cnn;
+        private string connectionString;
+        private SqlConnection cnn;
 
         public SqlRepository()
         {
@@ -50,7 +50,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
                 {
                     cnn.Close();
+
                 }
+
             }
 
             int[] kategorier = new int[liste.Count];
@@ -266,9 +268,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public ObservableCollection<Affaldspost> GetAffaldsposts()
+        public List<Affaldspost> GetAffaldsposts()
         {
-            ObservableCollection<Affaldspost> affaldsposts = new ObservableCollection<Affaldspost>();
+            List<Affaldspost> affaldsposts = new List<Affaldspost>();
 
             try
             {
@@ -355,9 +357,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public ObservableCollection<Affaldspost> Search(string måleenhed, string kategori, string ansvarlig, string virksomhedid)
+        public List<Affaldspost> Search(string måleenhed, string kategori, string ansvarlig, string virksomhedid)
         {
-            ObservableCollection<Affaldspost> affaldsposts = new ObservableCollection<Affaldspost>();
+            List<Affaldspost> affaldsposts = new List<Affaldspost>();
 
             try
             {

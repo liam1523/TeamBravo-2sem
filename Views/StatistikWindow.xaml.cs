@@ -29,7 +29,8 @@ namespace TeamBravo___2.Semester___Eksamensopgave
         public SeriesCollection seriesCollection { get; set; }
         public DateTime startTime { get; set; }
         public Func<double, string> Formatter { get; set; }
-        public SqlRepository sql = new SqlRepository();
+
+        private SqlRepository sql = new SqlRepository();
 
         public class DatoModel
         {
@@ -74,11 +75,8 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public DatoModel[] MakeChartValues(int kategori, int maaleenhed)
+        private DatoModel[] MakeChartValues(int kategori, int maaleenhed)
         {
-            //DateTime[] dates = sql.GetChartDates(kategori, maaleenhed, VirksomhedID);
-            //double[] values = sql.GetChartPosts(kategori, maaleenhed, VirksomhedID);
-
             DateTime[] dates = sql.GetChartDates(kategori, maaleenhed);
             double[] values = sql.GetChartPosts(kategori, maaleenhed);
 
@@ -103,7 +101,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-        public void MakeLineSeries(int kategori)
+        private void MakeLineSeries(int kategori)
         {
             var dayConfig = Mappers.Xy<DatoModel>().X(datoModel => datoModel.dateTime.Ticks).Y(datoModel => datoModel.value);
 

@@ -19,22 +19,19 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// </summary>
     public partial class NyFilWindow : Window
     {
-        public List<Affaldspost> affaldsposter = new List<Affaldspost>();
+        private List<Affaldspost> affaldsposter = new List<Affaldspost>();
         SqlRepository sql = new SqlRepository();
 
-        public NyFilWindow(List<Affaldspost> affaldsposts)
+        private string Brugernavn;
+
+        public NyFilWindow(List<Affaldspost> affaldsposts, string brugernavn)
         {
             InitializeComponent();
-            foreach (Affaldspost post in affaldsposts)
-            {
-                if (post.IsValid)
-                {
-                    affaldsposter.Add(post);
-
-                }
-
-            }
-            Dispatcher.Invoke(() => nyfilGrid.ItemsSource = affaldsposts);
+            Brugernavn = brugernavn;
+            affaldsposter = affaldsposts;
+            Dispatcher.Invoke(() => nyfilGrid.ItemsSource = affaldsposter);
+            ImportKnap.IsEnabled = true;
+            ImportKnap.Foreground = Brushes.White;
 
         }
 
@@ -46,9 +43,10 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 {
                     sql.Import(post.Maengde, post.Maaleenhed, post.Kategori, post.Beskrivelse, post.Ansvarlig, post.VirksomhedID, post.Dato);
 
-
                 }
                 MessageBox.Show("Affaldsposter importeret til databasen!");
+                ErrorLogger.SaveMsg($"{Brugernavn} har importeret en ny fil til databasen. {DateTime.Now}");
+
             }
             catch (Exception ex)
             {
@@ -61,7 +59,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 ImportKnap.Foreground = Brushes.Gray;
 
             }
-
 
         }
 

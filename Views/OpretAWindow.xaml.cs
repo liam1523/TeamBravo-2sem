@@ -46,9 +46,9 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
     public partial class OpretAWindow : Window
     {
-        public int VirksomhedID;
-        public string Brugernavn;
-        public SqlRepository sql = new SqlRepository();
+        private int VirksomhedID;
+        private string Brugernavn;
+        private SqlRepository sql = new SqlRepository();
 
         public OpretAWindow(string brugernavn, int virksomhedid)
         {
@@ -134,20 +134,29 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 }
                 beskrivelse = beskrivTxt.Text.Trim();
 
-                if (måleenhed != 0 && kategori != 0)
+                if (måleenhed != 0 && kategori != 0 && mængde > 0)
                 {
                     sql.Add(mængde, måleenhed, kategori, beskrivelse, Brugernavn, VirksomhedID);
                     MessageBox.Show("Affaldspost oprettet!");
+                    ErrorLogger.SaveMsg($"{Brugernavn} har oprettet en ny affaldspost. {DateTime.Now}");
                     this.Close();
+                    
+                }
+                else if (mængde <= 0)
+                {
+                    MessageBox.Show("Mængden kan ikke være 0 eller under!");
+
                 }
                 else
                 {
                     MessageBox.Show("Alle felter skal være fyldt!");
+
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Alle felter skal være fyldt!");
+                MessageBox.Show("Mængden er i et forkert format!");
+
             }
 
         }

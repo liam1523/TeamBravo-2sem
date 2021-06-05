@@ -33,29 +33,33 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             {
                 var split = række.Split(';');
 
-                Affaldspost affaldspost = new Affaldspost
+                try
                 {
-                    ID = int.Parse(split[0]),
-                    Maengde = decimal.Parse(split[1]),
-                    Maaleenhed = int.Parse(split[2]),
-                    Kategori = int.Parse(split[3]),
-                    Beskrivelse = split[4],
-                    Ansvarlig = split[5],
-                    VirksomhedID = int.Parse(split[6]),
-                    Dato = (DateTime)DateTime.Parse(split[7])
+                    Affaldspost affaldspost = new Affaldspost
+                    {
+                        ID = int.Parse(split[0]),
+                        Maengde = decimal.Parse(split[1]),
+                        Maaleenhed = int.Parse(split[2]),
+                        Kategori = int.Parse(split[3]),
+                        Beskrivelse = split[4],
+                        Ansvarlig = split[5],
+                        VirksomhedID = int.Parse(split[6]),
+                        Dato = DateTime.Parse(split[7])
 
-                };
+                    };
 
-                if (affaldspost.IsValid)
-                {
-                    affaldsposts.Add(affaldspost);
+                    if (affaldspost.IsValid)
+                    {
+                        affaldsposts.Add(affaldspost);
+
+                    }
 
                 }
-                else
+                catch (Exception)
                 {
-                    
 
                 }
+
 
             }
 
@@ -68,7 +72,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         public void OnError(Exception error)
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
 
         public virtual void Unsubscribe()

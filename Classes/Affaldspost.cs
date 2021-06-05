@@ -24,7 +24,6 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         public DateTime Dato { get; set; }
 
-
         public bool IsValid
         {
             get {

@@ -31,7 +31,7 @@
                 <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name="ImportKnap" Content="Import til database" HorizontalAlignment="Left" Margin="573,367,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="DarkGreen" Opacity="0.8" Foreground="White" Click="ImportToDb_Click"/>
+        <Button Name="ImportKnap" IsEnabled="False" Content="Import til database" HorizontalAlignment="Left" Margin="573,367,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="DarkGreen" Opacity="0.8" Foreground="Gray" Click="ImportToDb_Click"/>
 
     </Grid>
 </Window>
