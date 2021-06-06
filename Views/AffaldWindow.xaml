@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="AffaldWindow" Height="500" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <!--Ditte-->
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
@@ -19,7 +20,11 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
+        <!--/Ditte-->
+        
+        <!--Ditte-->
         <DataGrid Name="affaldGrid" HorizontalAlignment="Left" Height="260" Margin="60,147,0,0" VerticalAlignment="Top" Width="860" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="affaldGrid_SelectionChanged">
+            <!--Liam-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
@@ -38,11 +43,16 @@
                     </Style.Resources>
                 </Style>
             </DataGrid.RowStyle>
+            <!--/Liam-->
         </DataGrid>
+        <!--/Ditte-->
 
+        <!--Ditte-->
         <Button Content="Opret ny affaldspost" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="770,414,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Opret_Click"/>
         <Button Name="ExportKnap" Content="Eksporter affaldsposter" Background="DarkGreen" Opacity="0.8" Foreground="Gray" HorizontalAlignment="Left" Margin="60,414,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.624,0.615" Height="30" Click="Export_Click" IsEnabled="False" />
+        <!--/Ditte-->
 
+        <!--Ditte-->
         <TextBox Name="måleTxt" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="60,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="måleenhed_Changed"/>
         <TextBox Name="kategoriTxt" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="215,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="kategori_Changed" />
         <TextBox Name="ansvarTxt" FontSize="15" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="370,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="ansvarlig_Changed" />
@@ -53,6 +63,7 @@
         <Label Content="Kategori" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="219,80,0,0" VerticalAlignment="Top" Width="146"/>
         <Label Content="Ansvarlig" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="370,80,0,0" VerticalAlignment="Top" Width="150"/>
         <Label Content="VirksomhedID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="525,80,0,0" VerticalAlignment="Top" Width="150"/>
+        <!--/Ditte-->
 
     </Grid>
 </Window>

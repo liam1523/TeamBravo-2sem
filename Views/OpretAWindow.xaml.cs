@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
 
+    //Liam
     public enum MaaleEnhed
     {
         Colli = 1,
@@ -30,6 +31,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
     }
 
+    //Liam
     public enum Kategori
     {
         Batterier = 1,
@@ -46,10 +48,12 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
     public partial class OpretAWindow : Window
     {
+        //Liam
         private int VirksomhedID;
         private string Brugernavn;
         private SqlRepository sql = new SqlRepository();
 
+        //Liam
         public OpretAWindow(string brugernavn, int virksomhedid)
         {
             InitializeComponent();
@@ -61,6 +65,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Opret_Click(object sender, RoutedEventArgs e)
         {
             decimal mængde = 0;
@@ -161,6 +166,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

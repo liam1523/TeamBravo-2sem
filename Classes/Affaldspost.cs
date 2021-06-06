@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
+    //Liam
     public class Affaldspost
     {
+        //Liam
         public int ID { get; set; }
 
         public decimal Maengde { get; set; }
@@ -24,6 +26,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         public DateTime Dato { get; set; }
 
+        //Liam og Ditte
         public bool IsValid
         {
             get {

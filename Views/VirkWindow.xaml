@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="VirkWindow" Height="500" Width="940" ResizeMode="NoResize">
     <Grid>
+        <!--Ditte-->
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
@@ -20,6 +21,9 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Virksomheder" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
+        <!--/Ditte-->
+
+        <!--Liam-->
         <ContentControl Name="Content1" Margin="248,60,0,0" Visibility="Visible">
             <DataGrid Name="virksomhedGrid" HorizontalAlignment="Left" Height="330" Margin="32,15,0,0" VerticalAlignment="Top" Width="621" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
                 <DataGrid.Columns>
@@ -34,21 +38,26 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ContentControl>
+        <!--/Liam-->
+
+        <!--Liam-->
         <ContentControl Name="Content2" Margin="248,60,0,0" Visibility="Hidden">
-            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" FontWeight="Bold">
+            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Top" FontWeight="Bold">
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Kategorier" Labels="{Binding Labels}" Foreground="Black" FontWeight="Bold">
+                    <lvc:Axis Title="Kategorier" Labels="{Binding Labels}" Foreground="Black" FontWeight="Bold" FontSize="15">
                         <lvc:Axis.Separator>
                             <lvc:Separator Step="1"/>
                         </lvc:Axis.Separator>
                     </lvc:Axis>
                 </lvc:CartesianChart.AxisX>
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Antal poster" LabelFormatter="{Binding Formatter}" Foreground="Black" FontWeight="Bold"></lvc:Axis>
+                    <lvc:Axis Title="Antal poster" LabelFormatter="{Binding Formatter}" Foreground="Black" FontWeight="Bold" FontSize="15"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
         </ContentControl>
+        <!--/Liam-->
 
+        <!--Ditte-->
         <ListBox Name="listResult" HorizontalAlignment="Left" Height="224" Margin="36,75,0,0" VerticalAlignment="Top" Width="186" MouseDoubleClick="ListBox_MouseDoubleClick"
                  FontSize="15">
         </ListBox>
@@ -56,6 +65,7 @@
         <Label Name="FilLabel" Content="" HorizontalAlignment="Left" Margin="11,353,0,0" VerticalAlignment="Top" Width="237" Foreground="White" FontSize="25" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Button Name="GridKnap" Content="Datagrid" IsEnabled="False" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="36,316,0,0" VerticalAlignment="Top" Width="75" Height="32" FontWeight="Bold" Click="GridKnap_Click"/>
         <Button Name="ChartKnap" Content="Chart" IsEnabled="True" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="147,316,0,0" VerticalAlignment="Top" Width="75" Height="32" FontWeight="Bold" Click="ChartKnap_Click"/>
+        <!--/Ditte-->
 
     </Grid>
 </Window>

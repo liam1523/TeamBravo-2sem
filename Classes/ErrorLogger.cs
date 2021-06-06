@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
+    //Liam
     public class ErrorLogger
     {
         private static string _rootpath = Directory.GetCurrentDirectory();

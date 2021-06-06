@@ -19,11 +19,13 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// </summary>
     public partial class NyFilWindow : Window
     {
+        //Liam
         private List<Affaldspost> affaldsposter = new List<Affaldspost>();
         SqlRepository sql = new SqlRepository();
 
         private string Brugernavn;
 
+        //Liam
         public NyFilWindow(List<Affaldspost> affaldsposts, string brugernavn)
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void ImportToDb_Click(object sender, RoutedEventArgs e)
         {
             try

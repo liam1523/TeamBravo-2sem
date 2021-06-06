@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="NyFilWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <!--Ditte-->
         <Border Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
@@ -19,7 +20,11 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Ny fil" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
+        <!--/Ditte-->
+        
+        <!--Ditte-->
         <DataGrid Name="nyfilGrid" HorizontalAlignment="Left" Height="297" Margin="70,63,0,0" VerticalAlignment="Top" Width="653" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+            <!--Liam-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Mængde" Binding="{Binding Maengde}"/>
@@ -30,8 +35,13 @@
                 <DataGridTextColumn Header="VirksomhedID" Binding="{Binding VirksomhedID}"/>
                 <DataGridTextColumn Header="Dato" Binding="{Binding Dato}"/>
             </DataGrid.Columns>
+            <!--/Liam-->
         </DataGrid>
+        <!--/Ditte-->
+        
+        <!--Ditte-->
         <Button Name="ImportKnap" IsEnabled="False" Content="Import til database" HorizontalAlignment="Left" Margin="573,367,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="DarkGreen" Opacity="0.8" Foreground="Gray" Click="ImportToDb_Click"/>
+        <!--/Ditte-->
 
     </Grid>
 </Window>

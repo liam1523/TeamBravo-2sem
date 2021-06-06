@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Opdater affald" Height="400" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <!--Ditte-->
         <Border Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
@@ -16,8 +17,10 @@
                     </LinearGradientBrush.GradientStops>
                 </LinearGradientBrush>
             </Border.Background>
-
         </Border>
+        <!--/Ditte-->
+
+        <!--Ditte-->
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Content="Opdater Affald" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,20,0,0"/>
 
@@ -36,6 +39,6 @@
         <Button Name="OpdaterKnap" Content="Opdater" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="20,275,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Update_Click"/>
         <Button Name="SletKnap" Content="Slet" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="130,275,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Remove_Click"/>
         <Button Name="AnnullerKnap" Content="Annullér" Background="DarkGreen" Opacity="0.8" Foreground="White" HorizontalAlignment="Left" Margin="240,275,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Cancel_Click"/>
-
+        <!--/Ditte-->
     </Grid>
 </Window>

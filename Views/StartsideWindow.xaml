@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="StartsideWindow" Height="500" Width="1000" WindowStartupLocation="CenterScreen" Closed="Window_Closed" ResizeMode="NoResize">
     <Grid>
+        <!--Ditte-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
@@ -23,11 +24,25 @@
         </Border>
         <Rectangle Grid.ColumnSpan="2" Fill="Green" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0"/>
         <Label Grid.ColumnSpan="2" Content="Virksomheds ID :" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-4.167,0.555" Height="55" Width="175" FontSize="20" Margin="5,8,0,0"/>
+        <!--/Ditte-->
+
+        <!--Ditte-->
         <Label Name="IDlabel" Grid.ColumnSpan="2" Content="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="170,8,0,0" VerticalAlignment="Top" Height="40" FontSize="20" Width="249"/>
         <Button Grid.ColumnSpan="2" Content="Affald" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="165,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="AffaldBtn_Click"/>
         <Button Grid.ColumnSpan="2" Content="Statistikker" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="425,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="StatistikBtn_Click"/>
         <Button Grid.ColumnSpan="2" Content="Virksomheder" Background="DarkGreen" Opacity="0.8" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="700,165,0,0" VerticalAlignment="Top" Width="144" Height="134" Click="VirksomhederBtn_Click" />
         <Label Name="velkLabel" Grid.ColumnSpan="2" Content="Velkommen" Foreground="White" FontWeight="Bold" FontSize="30" HorizontalAlignment="Left" Margin="311,65,0,0" VerticalAlignment="Top" Height="71" Width="388" HorizontalContentAlignment="Center"/>
+        <!--/Ditte-->
         
+        <!--Liam-->
+        <Button x:Name="CloseKnap" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="900,384,0,0" VerticalAlignment="Top" Width="66" Height="64" Background="Transparent" BorderThickness="0" Click="CloseKnap_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius"  Value="55"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="/Images/242dc2fd066c6c8e36eff57b81275619.png" RenderTransformOrigin="0.5,0.5" Height="62" Width="90" RenderOptions.BitmapScalingMode="HighQuality"/>
+        </Button>
+        <!--/Liam-->
     </Grid>
 </Window>

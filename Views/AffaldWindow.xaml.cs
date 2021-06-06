@@ -22,19 +22,25 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
     public partial class AffaldWindow : Window //Liam
     {
+        //Liam
         private List<Affaldspost> affaldsposter = new List<Affaldspost>();
         private SqlRepository sql = new SqlRepository();
 
         private int VirksomhedID;
         private string Brugernavn;
-        public AffaldWindow(string brugernavn, int virksomhedid)
 
+        //Liam
+        public AffaldWindow(string brugernavn, int virksomhedid)
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
             VirksomhedID = virksomhedid;
             Brugernavn = brugernavn;
-            affaldsposter = sql.GetAffaldsposts(); //Ditte
+
+            //Ditte
+            affaldsposter = sql.GetAffaldsposts();
+
+            //Liam
             if (affaldsposter != null)
             {
                 affaldGrid.ItemsSource = affaldsposter;
@@ -49,6 +55,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             
         }
 
+        //Liam
         private void Export_Click(object sender, RoutedEventArgs e)
         {
             char[] charArray;
@@ -105,6 +112,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Opret_Click(object sender, RoutedEventArgs e)
         {
             OpretAWindow opretA = new OpretAWindow(Brugernavn, VirksomhedID);
@@ -118,6 +126,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             affaldGrid.UnselectAll();
@@ -136,6 +145,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void måleenhed_Changed(object sender, TextChangedEventArgs e)
         {
             SøgKnap.IsEnabled = true;
@@ -143,6 +153,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void kategori_Changed(object sender, TextChangedEventArgs e)
         {
             SøgKnap.IsEnabled = true;
@@ -150,6 +161,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void ansvarlig_Changed(object sender, TextChangedEventArgs e)
         {
             SøgKnap.IsEnabled = true;
@@ -157,6 +169,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void virkId_Changed(object sender, TextChangedEventArgs e)
         {
             SøgKnap.IsEnabled = true;
@@ -164,6 +177,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void ClearFields_Click(object sender, RoutedEventArgs e)
         {
             affaldGrid.UnselectAll();
@@ -181,6 +195,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void affaldGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (affaldGrid.SelectedCells.Count == 0)
@@ -198,6 +213,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void affaldGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRow row = sender as DataGridRow;

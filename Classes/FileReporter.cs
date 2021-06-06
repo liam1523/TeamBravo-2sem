@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
+    //Liam
     public class FileReporter : IObserver<string>
     {
         private IDisposable unsubscriber;

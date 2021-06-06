@@ -25,13 +25,14 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// </summary>
     public partial class StatistikWindow : Window
     {
-
+        //Liam
         public SeriesCollection seriesCollection { get; set; }
         public DateTime startTime { get; set; }
         public Func<double, string> Formatter { get; set; }
 
         private SqlRepository sql = new SqlRepository();
 
+        //Liam
         public class DatoModel
         {
             public DateTime dateTime { get; set; }
@@ -39,6 +40,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public StatistikWindow()
         {
             InitializeComponent();
@@ -75,6 +77,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private DatoModel[] MakeChartValues(int kategori, int maaleenhed)
         {
             DateTime[] dates = sql.GetChartDates(kategori, maaleenhed);
@@ -101,6 +104,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void MakeLineSeries(int kategori)
         {
             var dayConfig = Mappers.Xy<DatoModel>().X(datoModel => datoModel.dateTime.Ticks).Y(datoModel => datoModel.value);
@@ -237,6 +241,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             #endregion
         }
 
+        //Liam
         private void Batterier_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -250,6 +255,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Biler_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -262,6 +268,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void Elektronik_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -274,6 +281,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void Impraeg_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -286,6 +294,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void Inventar_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -298,6 +307,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void Organisk_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -310,6 +320,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void Pap_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -322,6 +333,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void Plast_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -334,6 +346,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             myChart.AxisY[0].MaxValue = double.NaN;
         }
 
+        //Liam
         private void PVC_Click(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
