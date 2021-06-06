@@ -23,11 +23,13 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// 
     public partial class StartsideWindow : Window //Liam
     {
+        //Liam
         private int VirkID;
         private string Brugernavn;
 
         private Thread thread;
 
+        //Liam
         public StartsideWindow(string username, int virksomhedid)
         {
             InitializeComponent();
@@ -102,6 +104,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void OpenFile(List<Affaldspost> affaldsposts)
         {
             NyFilWindow nyFilWindow = new NyFilWindow(affaldsposts, Brugernavn) ;
@@ -110,6 +113,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void OpenVirksomheder()
         {
             VirkWindow virkWindow = new VirkWindow(Brugernavn);
@@ -119,6 +123,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void AffaldBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
@@ -128,6 +133,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void StatistikBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
@@ -137,6 +143,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void VirksomhederBtn_Click(object sender, RoutedEventArgs e)
         {
             if (thread == null)
@@ -150,9 +157,22 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Window_Closed(object sender, EventArgs e)
         {
             Environment.Exit(0);
+
+        }
+
+        //Liam
+        private void CloseKnap_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Vil du logge af nu?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+
+            }
 
         }
 

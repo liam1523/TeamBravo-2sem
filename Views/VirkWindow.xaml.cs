@@ -24,6 +24,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// </summary>
     public partial class VirkWindow : Window
     {
+        //Liam
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
@@ -33,6 +34,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         private string Brugernavn;
 
+        //Liam
         public VirkWindow(string brugernavn)
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
@@ -51,6 +53,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             string filename = listResult.SelectedItem.ToString();
@@ -169,6 +172,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void ImportKnap_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -197,6 +201,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void GridKnap_Click(object sender, RoutedEventArgs e)
         {
             Content2.Visibility = Visibility.Hidden;
@@ -206,6 +211,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void ChartKnap_Click(object sender, RoutedEventArgs e)
         {
             Content2.Visibility = Visibility.Visible;

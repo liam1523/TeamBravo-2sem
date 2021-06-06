@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
+
     public class SqlRepository
     {
+        //Liam
         private string connectionString;
         private SqlConnection cnn;
 
+        //Liam
         public SqlRepository()
         {
             connectionString = "Data Source = .; Initial Catalog = TeamBravo; Integrated Security = True";
@@ -20,6 +23,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public int[] GetKategorier()
         {
             List<int> liste = new List<int>();
@@ -66,6 +70,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public double[] GetChartPosts(int kategori, int maaleenhed)
         {
             List<double> tal = new List<double>();
@@ -112,6 +117,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public DateTime[] GetChartDates(int kategori, int maaleenhed)
         {
             List<DateTime> dateTimes = new List<DateTime>();
@@ -152,6 +158,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public void Import(decimal mængde, int måleenhed, int kategori, string beskrivelse, string ansvarlig, int virksomhedid, DateTime dato)
         {
             try
@@ -179,6 +186,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public void Add(decimal mængde, int måleenhed, int kategori, string beskrivelse, string ansvarlig, int virksomhedid)
         {
             try
@@ -206,6 +214,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public void RemovePost(int postId)
         {
             try
@@ -235,6 +244,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public void UpdatePost(Affaldspost post)
         {
 
@@ -268,6 +278,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Ditte
         public List<Affaldspost> GetAffaldsposts()
         {
             List<Affaldspost> affaldsposts = new List<Affaldspost>();
@@ -313,7 +324,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
-
+        //Liam
         public List<User> GetUsers()
         {
             List<User> users = new List<User>();
@@ -357,6 +368,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public List<Affaldspost> Search(string måleenhed, string kategori, string ansvarlig, string virksomhedid)
         {
             List<Affaldspost> affaldsposts = new List<Affaldspost>();

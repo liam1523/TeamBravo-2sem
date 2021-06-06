@@ -19,6 +19,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
     /// </summary>
     public partial class OpdaterAWindow : Window
     {
+        //Liam
         public enum MaaleEnhed
         {
             Colli = 1,
@@ -32,6 +33,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         public enum Kategori
         {
             Batterier = 1,
@@ -46,11 +48,13 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private Affaldspost Affaldspost { get; set; }
 
         private SqlRepository sql = new SqlRepository();
         private string Brugernavn;
 
+        //Liam
         public OpdaterAWindow(Affaldspost affaldspost, string brugernavn)
         {
             InitializeComponent();
@@ -124,6 +128,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -221,6 +226,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
 
         }
 
+        //Liam
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             try

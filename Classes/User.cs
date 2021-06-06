@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
+    //Liam
     public class User
     {
         public string Brugernavn { get; set; }
