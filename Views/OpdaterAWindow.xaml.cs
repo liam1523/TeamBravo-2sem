@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
-    /// <summary>
-    /// Interaction logic for Window5.xaml
-    /// </summary>
+
     public partial class OpdaterAWindow : Window
     {
         //Liam

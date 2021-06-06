@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
-
     //Liam
     public enum MaaleEnhed
     {
