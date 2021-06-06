@@ -17,10 +17,7 @@ using System.Windows.Shapes;
 
 namespace TeamBravo___2.Semester___Eksamensopgave
 {
-    /// <summary>
-    /// Interaction logic for StartsideWindow.xaml
-    /// </summary>
-    /// 
+
     public partial class StartsideWindow : Window //Liam
     {
         //Liam
