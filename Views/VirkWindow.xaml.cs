@@ -122,7 +122,7 @@ namespace TeamBravo___2.Semester___Eksamensopgave
                 }
 
                 Labels = new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-                Formatter = value => value.ToString("N");
+                Formatter = value => value.ToString("N0");
 
                 if (data.Count != 0)
                 {
@@ -165,6 +165,12 @@ namespace TeamBravo___2.Semester___Eksamensopgave
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                listResult.Items.Remove(filename);
+                virksomhedGrid.ItemsSource = null;
+                virksomhedGrid.ItemsSource = data;
+                FilLabel.Content = "";
+                ImportKnap.IsEnabled = false;
+                ImportKnap.Foreground = Brushes.Gray;
 
             }
 
